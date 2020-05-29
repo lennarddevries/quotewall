@@ -1,0 +1,61 @@
+body{
+}
+
+.loop-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.quote-container {
+  scroll-snap-align: start;
+  position: relative;
+  text-align: center;
+
+  #quote {
+    position: relative;
+    width: 100vw;
+    flex-shrink: 0;
+    height: 100vh;
+    p {
+
+    }
+
+    cite {
+
+    }
+  }
+}
+
+.controls {
+  z-index: 2;
+}
+
+#previous, #next {
+  position: absolute;
+  width: 33vw;
+  height: 100%;
+}
+
+#previous {
+  left: 0;
+}
+
+#next {
+  right: 0;
+}
+//
+//#bullets {
+//  position: absolute;
+//  width: 100vw;
+//  height: 20vh;
+//  bottom: 0;
+//  display: flex;
+//  justify-content: space-around;
+//  align-items: center;
+//  a {
+//
+//  }
+//}
