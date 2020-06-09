@@ -24,11 +24,26 @@
         </div>
     {% endfor %}
 </div>
-{#<div class="controls" id="bullets">#}
-{#    {% for quote in quotes %}#}
-{#        <a href="#quote{{ forloop.counter }}">{{ forloop.counter }}</a>#}
-{#    {% endfor %}#}
-{#</div>#}
+<div class="controls" id="bullets">
+    {% for quote in quotes %}
+        <a href="#quote{{ forloop.counter }}">{{ forloop.counter }}</a>
+    {% endfor %}
+</div>
 </body>
+<script type="text/javascript">
+    var quoteStore = [
+        {% for quote in quotes %}
+            function(){
+               window.location.hash = "quote{{ forloop.counter }}";
+            },
+        {% endfor %}
+    ];
+    function nextQuote(index) {
+      quoteStore[index]();
+      window.setTimeout(
+        nextQuote.bind(undefined, (index + 1) % quoteStore.length), 5000 );
+    }
+    nextQuote(0);
+</script>
 
 </html>
